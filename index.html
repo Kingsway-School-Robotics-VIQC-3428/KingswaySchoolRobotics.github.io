@@ -10,6 +10,7 @@
 <meta name="reply-to" content="flyingnerd123@gmail.com">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="local.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -73,6 +74,87 @@ body, html {
     <span class="w3-large"></span><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
     <h1><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Learn more and start today</a></h1>
   </div> 
+	<div class="w3-display-bottommiddle w3-text-grey w3-large" style="padding:24px 48px"> 
+	<h2 id="countdown-text"></h2>
+	<h3 id="countdown"></h3>
+	</div>
+<script>
+	//var cost = 16000
+	//var raised = 8000
+	//var progress = ((raised / cost) * 100);
+	
+	var TestingActive = false;
+	//document.getElementById("funds-text").innerHTML = "Worlds Funds " + progress + "%";
+	//document.getElementById("progress-bar").value = progress;
+	
+	let ONOFF = document.querySelector('.blinking');
+
+//console.log(ONOFF.classList);
+//console.log("© Joseph Greening")
+// Set the date we're counting down to
+	
+//ONOFF.classList.remove('blinking');
+	
+//console.log("Count Down Date:");
+//console.log(countDownDate);
+	
+var CheckActive = false;
+
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+if (!CheckActive) {
+	
+		if (TestingActive) {
+		//test date: please set as current date
+		document.getElementById("countdown-text").innerHTML = "Testing";
+var countDownDate = new Date("Mar 25, 2019 8:00:00").getTime();
+	} else {
+		document.getElementById("countdown-text").innerHTML = "Count Down to Nationals";
+// Date Counting Down to:	
+var countDownDate = new Date("Dec 8, 2019 8:00:00").getTime();
+var countDownDate2 = new Date("Apr 26, 2020 8:00:00").getTime();		
+	}
+	
+  // Get todays date and time
+  var now = new Date().getTime();
+//console.log("actual day");
+//console.log(now);
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+//console.log("distance");
+//console.log(distance);
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="countdown"
+  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+	console.log("Countdown Sequence Enabled!!");
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "Expired";
+  } 
+	
+	if ((days == 0) && (hours < 24)) {
+		//ONOFF.classList.add('blinking');
+		//console.log("Blinking Enabled");
+		//console.log(" ")
+		}
+} else {
+	//console.log("Override: Countdown Sequence Disabled!!")
+	//ONOFF.classList.remove('blinking');
+	 document.getElementById("countdown").innerHTML = "Override: Countdown Sequence Disabled!!";
+	
+}
+}, 1000);
+	
+	
+
+</script>
   <div class="w3-display-bottomleft w3-text-grey w3-large" style="padding:24px 48px">
     <i class="fa fa-facebook-official w3-hover-opacity"></i>
     <i class="fa fa-instagram w3-hover-opacity"></i>
@@ -81,6 +163,7 @@ body, html {
     <i class="fa fa-twitter w3-hover-opacity"></i>
     <i class="fa fa-linkedin w3-hover-opacity"></i>
   </div>
+	
 </header>
 
 <!-- About Section -->
@@ -442,7 +525,6 @@ function w3_open() {
 function w3_close() {
     mySidebar.style.display = "none";
 }
-</script>
-
+</script>  
 </body>
 </html>
